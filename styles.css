@@ -266,7 +266,7 @@ body {
   color: var(--other-name-gray);
 }
 .table__entry .companyandyear {
-  font-size: 8px;
+  font-size: 10px;
   color: var(--affil-gray);
   display: block;
 }
