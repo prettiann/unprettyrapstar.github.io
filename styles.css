@@ -47,7 +47,7 @@ body {
   text-align: center;
 }
 #banner-image {
-  width: 125px;
+  width: 160px;
   margin-bottom: 15px;
 }
 #banner-title {
@@ -266,7 +266,7 @@ body {
   color: var(--other-name-gray);
 }
 .table__entry .companyandyear {
-  font-size: 10px;
+  font-size: 8px;
   color: var(--affil-gray);
   display: block;
 }
