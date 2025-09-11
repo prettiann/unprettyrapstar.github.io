@@ -1,7 +1,7 @@
 /* define constants up here */
 :root {
-  --banner-bg-start: #d2a1d0;
-  --banner-bg-end: #5e3586;
+  --banner-bg-start: #fd5e6d;
+  --banner-bg-end: #ef5079;
   --produce-gray: #e4e4e4;
   --search-text-gray: #949494;
   --search-gray: #f2f2f2;
@@ -244,4 +244,56 @@ body {
   filter: grayscale(100%);
 }
 .ranking__entry-icon-border {
-  position
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 5px solid var(--default-rank);
+}
+.eliminated .ranking__entry-icon-border {
+  border: 5px solid var(--eliminated-rank);
+}
+.ranking__entry-icon-badge {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: var(--default-rank);
+  font-weight: 900;
+  font-size: 8px;
+  text-align: center;
+  color: white;
+}
+.eliminated .ranking__entry-icon-badge {
+  background-color: var(--eliminated-rank);
+}
+.ranking__row-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  text-align: center;
+}
+.ranking__entry .company {
+  color: var(--ranking-affil-gray);
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.2px;
+}
+
+/* Generic Styles */
+.padded-box { padding: 40px; }
+.flex-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+.drag-cursor {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
