@@ -14,12 +14,8 @@
   --checked-blue: #052ae2CC;
 
   /* ranking border colors */
-  --a-rank: #fb4a8c;
-  --b-rank: #fc840c;
-  --c-rank: #ffc407;
-  --d-rank: #19b468;
-  --f-rank: #a6a6a4;
-  --no-rank: #707070;
+  --default-rank: #fb4a8c;
+  --eliminated-rank: #fc840c;
 }
 
 p {
@@ -344,23 +340,11 @@ body {
 }
 
 /* Styles for different badge colors */
-.bg-no {
+.bg-default {
   background-color: var(--no-rank);
 }
-.bg-a {
-  background-color: var(--a-rank);
-}
-.bg-b {
-  background-color: var(--b-rank);
-}
-.bg-c {
-  background-color: var(--c-rank);
-}
-.bg-d {
-  background-color: var(--d-rank);
-}
-.bg-f {
-  background-color: var(--f-rank);
+.bg-no {
+  background-color: var(--no-rank);
 }
 .eliminated .ranking__entry-icon-badge {
   background-color: var(--no-rank);
