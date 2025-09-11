@@ -1,7 +1,7 @@
 /* define constants up here */
 :root {
-  --banner-bg-start: #693391;
-  --banner-bg-end: #c07ec6;
+  --banner-bg-start: #d2a1d0;
+  --banner-bg-end: #5e3586;
   --produce-gray: #e4e4e4;
   --search-text-gray: #949494;
   --search-gray: #f2f2f2;
@@ -13,9 +13,9 @@
 
   --checked-blue: #052ae2CC;
 
-  /* ranking border colors */
-  --default-rank: #693391;
-  --eliminated-rank: #fc840c;
+  /* simplified ranking border colors */
+  --default-rank: #fb4a8c;  /* you can change this */
+  --eliminated-rank: #707070;
 }
 
 p {
@@ -27,18 +27,13 @@ body {
   font-family: 'Open Sans', sans-serif;
   display: inline-block;
   min-width: 100%;
-  /*TODO: I had the weirdest bug where if i don't have this background white the top banner would disappear
-  it's super late right now and I'm not sure what is going on i need to look into this later */
   background-color: white;
 }
 
 /* Styles for banner */
 #top-banner {
   background: radial-gradient(circle, var(--banner-bg-start), var(--banner-bg-end) 60%);
-  /* background-color: var(--banner-bg-color); */
   padding: 25px;
-
-  /* these will be unnecessary once we get the banner image */
   color: white;
   text-align: center;
 }
@@ -75,14 +70,11 @@ body {
 #table__filter-input {
   padding: 5px;
   padding-left: 25px;
-  height: 100%;
   width: 100%;
-  box-sizing: border-box;
   border-radius: 3px;
   background-color: var(--search-gray);
   border: none;
   outline: 0;
-  /* setting up search icon */
   background-image: url("assets/search.png");
   background-size: 10px 10px;
   background-position: 7px 7px;
@@ -101,7 +93,7 @@ body {
   color: var(--affil-gray);
 }
 
-/* Styles for share link functionality */
+/* Share link button */
 #sharelink-container {
   margin: 10px;
   display: flex;
@@ -109,41 +101,39 @@ body {
 #getlink-button {
   border: none;
   border-radius: 3px;
-  padding: 4px 6px 4px 6px;
-  background-color: var(--a-rank);
+  padding: 4px 6px;
+  background-color: var(--default-rank);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: white;
 }
-#getlink-button:active { /* these styles are active while get link is being pressed */
+#getlink-button:active {
   background-color: #ff2475;
 }
 #getlink-textbox {
   margin-left: 5px;
   border: 1px solid var(--save-box-gray);
   border-radius: 3px;
-  box-sizing: border-box;
   padding: 5px;
   padding-right: 50px;
   flex: 1;
   display:none;
 }
 #copylink-button {
-  height: inherit;
   width: 50px;
   margin-left: -50px;
   border: 1px solid var(--save-box-gray);
-  border-radius: 0px 3px 3px 0;
+  border-radius: 0 3px 3px 0;
   background-color: var(--save-box-gray);
   font-weight: 700;
   display:none;
 }
-#copylink-button:active { /* these styles are active while copylink is being pressed */
+#copylink-button:active {
   background-color: var(--other-name-gray);
 }
 
-/* Styles for table entries */
+/* Table entries */
 #table__entry-container {
   overflow-y: scroll;
 }
@@ -167,8 +157,6 @@ body {
   display: block;
   box-sizing: border-box;
   position: relative;
-  /* background-image: url(assets/trainees/leegaeun.jpg);
-  background-size: 60px; */
 }
 .table__entry-img {
   border-radius: 50%;
@@ -176,10 +164,8 @@ body {
   height: inherit;
 }
 .eliminated .table__entry-img {
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
-/* only applied when an entry is selected/checked */
 .table__entry-check {
   position: absolute;
   top: 0;
@@ -187,9 +173,7 @@ body {
   width: inherit;
   height: inherit;
   border-radius: 50%;
-  /* blue background */
   background-color: var(--checked-blue);
-  /* the padding insets the checkbox (makes it bigger/smaller) */
   padding: 10px;
   box-sizing: border-box;
 }
@@ -201,57 +185,13 @@ body {
   height: inherit;
   border-radius: 50%;
   box-sizing: border-box;
-}
-.table__entry-icon-crown, .ranking__entry-icon-crown {
-  position: absolute;
-  padding: 2px;
-  box-sizing: border-box;
-  top: -5px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #e3e3e3;
-  background-image: url(assets/crown.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-origin: content-box;
-}
-/* Different entry borders */
-.a-rank-border {
-  border: 5px solid var(--a-rank);
-}
-.b-rank-border {
-  border: 5px solid var(--b-rank);
-}
-.c-rank-border {
-  border: 5px solid var(--c-rank);
-}
-.d-rank-border {
-  border: 5px solid var(--d-rank);
-}
-.f-rank-border {
-  border: 5px solid var(--f-rank);
-}
-.no-rank-border {
-  border: none;
+  border: 5px solid var(--default-rank);
 }
 .eliminated .table__entry-icon-border {
-  border: 5px solid var(--no-rank);
+  border: 5px solid var(--eliminated-rank);
 }
-.eliminated .ranking__entry-icon-border {
-  border: 5px solid var(--no-rank);
-}
-.ranking__entry-icon-border.dragged-over { /* defines a border for when you drag over a trainee in ranking */
-  border: 5px solid var(--checked-blue);
-}
-
 .table__entry-text {
-  margin: auto 5px auto 5px;
-  /* margin: auto auto; */
+  margin: auto 5px;
 }
 .table__entry-text .name {
   font-size: 12px;
@@ -267,10 +207,9 @@ body {
   display: block;
 }
 
-/* Ranking Styles */
+/* Ranking */
 #ranking__pyramid {
-  /* min-width: 350px; */
-  margin: 40px 40px 10px 40px;
+  margin: 40px 40px 10px;
   display: flex;
   flex-direction: column;
 }
@@ -280,14 +219,13 @@ body {
 }
 .ranking__row {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 .ranking__entry-view {
   position: relative;
   width: 60px;
   height: 60px;
-  margin: 10px 24px 8px 24px;
+  margin: 10px 24px 8px;
 }
 .ranking__entry-icon {
   border-radius: 50%;
@@ -303,74 +241,7 @@ body {
   height: inherit;
 }
 .eliminated .ranking__entry-img {
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
 .ranking__entry-icon-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  height: inherit;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-.ranking__entry-icon-badge {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 0;
-  right: 0;
-  bottom: -5px;
-  margin: auto;
-  border-radius: 50%;
-  background-color: var(--a-rank);
-  box-sizing: border-box;
-  padding: 2px;
-  /* badge text options */
-  font-weight: 900;
-  font-size: 8px;
-  text-align: center;
-  color: white;
-}
-.ranking__row-text {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 11px;
-  text-align: center;
-}
-
-/* Styles for different badge colors */
-.bg-default {
-  background-color: var(--no-rank);
-}
-.bg-no {
-  background-color: var(--no-rank);
-}
-.eliminated .ranking__entry-icon-badge {
-  background-color: var(--no-rank);
-}
-
-.ranking__entry .company {
-  color: var(--ranking-affil-gray);
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  font-size: 9px;
-  letter-spacing: 0.2px;
-}
-
-/* Generic Styles */
-.padded-box {
-  padding: 40px;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  /* align-items: center; */
-  justify-content: center;
-}
-
-.drag-cursor {
-  cursor: -webkit-grab;
-  cursor: grab;
-}
+  position
